@@ -1,0 +1,255 @@
+/**
+ * Sky theme for reveal.js.
+ *
+ * Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+
+// Include theme-specific fonts
+@import url(https://fonts.googleapis.com/css?family=Quicksand:400,700,400italic,700italic);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700);
+
+
+// Override theme settings (see ../template/settings.scss)
+$mainFont: 'Open Sans', sans-serif;
+$mainColor: #333;
+$headingFont: 'Quicksand', sans-serif;
+$headingColor: #333;
+$headingLetterSpacing: -0.08em;
+$headingTextShadow: none;
+$backgroundColor: #f7fbfc;
+$linkColor: #3b759e;
+$linkColorHover: lighten( $linkColor, 20% );
+$selectionBackgroundColor: #134674;
+$turtleGreen: #005151;
+$lightText: whitesmoke;
+// Fix links so they are not cut off
+.reveal a {
+	line-height: 1.3em;
+}
+
+// Background generator
+@mixin bodyBackground() {
+	background-image:linear-gradient(magenta, white);
+	// @include horizontal-gradient( magenta, white);
+}
+
+@mixin name($color){
+	letter-spacing: 1px;
+	text-shadow:0px 0px 3px $color;
+}
+
+.reveal .clean-image{
+	border:none;
+	background:transparent;
+	box-shadow:none;
+}
+
+.reveal .logo{
+	font-size: 1rem;
+	color:white;
+	@include name(white);
+	margin-left: 1.5vw;
+}
+
+.reveal .source{
+	font-size: .6rem;
+	text-align: right;
+	margin: 0;
+	margin-right: 20px;
+	display: block;
+}
+
+.reveal .title {
+	background-color: $turtleGreen;
+	// background-image: url('./../../../images/js-last-turtle.png');
+	// background-repeat: no-repeat;
+  //   background-position: 50% 50%;
+}
+
+.reveal .title p{
+	@include name(black);
+	color: $lightText;
+}
+
+//paired anything
+.reveal .pair{
+	display: flex;
+	justify-content: space-between;
+	.equals{
+		align-self:center;
+		font-size: 10rem;
+	}
+	img, div{
+		width: 300px;
+		position: relative;
+	}
+	.banana-pic{
+		max-width: 400px;
+	}
+}
+.reveal{
+	.middle-code-snippet{
+		display: inline-block;
+	}
+}
+//orange section
+.reveal .orange{
+
+	td{
+		font-size: 1.8rem;
+	}
+	td + td {
+		font-style: italic;
+		font-size: 2.5rem;
+	}
+	th{
+		font-size: 1.8rem;
+		font-style: bold;
+	}
+}
+//signifier
+.reveal{
+	.sign{
+		position: relative;
+		p{
+			position: absolute;
+			left: 0;
+			right:0;
+		}
+		.puffy, .zoe, .hermione{
+			position: absolute;
+			height: 112px;
+		}
+		.puffy{
+			left: 43%;
+			bottom: 21%;
+		}
+		ul{
+			margin: 0;
+			padding: 0;
+			top: 52%;
+			left: 36%;
+			max-width: 300px;
+			position: absolute;
+			font-size: 1rem;
+		}
+		.hermione{
+			left: 43%;
+			bottom: 21%;
+		}
+		.signifier.zoe{
+			position: absolute;
+			left: 43%;
+			top: 18%;
+		}
+		.signifier{
+			top:120px;
+		}
+		.signified{
+			bottom:120px;
+		}
+		.little-fruit{
+			width: 110px;
+			position: absolute;
+			right: 50%;
+		}
+		.little-fruit + .little-fruit{
+			right: calc(50% - 110px);
+		}
+	}
+	//web of signifiers
+	.grid{
+		display: flex;
+		flex-wrap:wrap;
+		img{
+			width: calc(100%/3 - 30px);
+    	margin: 5px;
+		}
+	}
+	//world turtle
+	.world-turtle{
+		display: flex;
+		flex-direction:column;
+		align-items: center;
+		.earth{
+			// margin-top:-150px;
+			z-index: 10;
+		}
+		.turtle-stack{
+			display: flex;
+			flex-direction:column;
+			position: relative;
+			top: -250px;
+			width: 400px;
+			img{
+				margin:0;
+				padding-left: 30px;
+			}
+			img:nth-of-type(1){
+				margin-top:100px;
+				z-index: 9;
+			}
+			img:nth-of-type(2){
+				margin-top: -175px;
+				z-index: 8;
+			}
+			img:nth-of-type(3){
+				margin-top:-169px;
+				z-index: 7;
+			}
+			img:nth-of-type(4){
+				margin-top:-166px;
+				z-index: 6;
+			}
+		}
+	}
+}
+
+.reveal pre.bad-boy{
+	margin-right: 3%;
+	pre{
+		margin: 0;
+	}
+	code{
+		max-height: 550px;
+	}
+	code.banana{
+		display: inline-block;
+		padding-right: 30px;
+		float: left;
+		margin-left:5%;
+	}
+}
+.reveal .fragment.diddy-face{
+	position: absolute;
+	left: 417px;
+	top: 127px;
+	width: 105px;
+}
+//second image on top
+.other.abs-parent img, 
+.other.abs-parent div
+{
+	position: absolute;
+		left:0;
+}
+.reveal .abs-parent{
+		.this{
+		position: absolute;
+    left: 47%;
+    color: white;
+		text-shadow: 2px 2px 2px black;
+		top:50%;
+		}
+}
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
